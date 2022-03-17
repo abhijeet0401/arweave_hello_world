@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import classes from "./App.module.css";
+import Card from './components/UI/Card';
+import Footer from './components/UI/Footer';
+import { WalletSelectButton } from './components/UI/Wallet/WalletSelectButton'
 function App() {
+  const [isWalletConnected, setIsWalletConnected] =useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className={classes.Grid}>
+      <div className={classes.Header}>
+        <h1> Hello World</h1>
+        <WalletSelectButton setIsConnected={value => setIsWalletConnected(value)} />
+        </div>
+      <div className={classes.Child}>
+        <Card />
+      </div>
+      <div className={classes.Foot}>
+        <Footer />
+      </div>
     </div>
+  </>
   );
 }
 
